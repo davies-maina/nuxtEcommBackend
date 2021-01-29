@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Products\Product;
 use App\Models\Traits\HasChildren;
 use App\Models\Traits\IsOrderable;
 use Illuminate\Database\Eloquent\Model;
@@ -19,7 +20,13 @@ class Category extends Model
         
     }
 
-    
+
+  public function products()
+  {
+      return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
+  }
+
+ 
 
    
 }
