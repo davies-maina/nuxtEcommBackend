@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\ProductIndexResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\ProductIndexResource;
 
 class ProductMoreDetailsResource extends ProductIndexResource
 {
