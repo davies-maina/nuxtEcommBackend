@@ -4,6 +4,7 @@ namespace App\Products;
 
 use App\Scoping\Scoper;
 use App\Models\Category;
+use App\Models\ProductVariation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -21,4 +22,10 @@ class Product extends Model
     public function scopeWithScopes(Builder $builder,$scopes=[]){
         return (new Scoper(request()))->apply($builder,$scopes);
 }
+
+public function variations()
+{
+    return $this->hasMany(ProductVariation::class)->orderBy('order','asc');
+}
+
 }

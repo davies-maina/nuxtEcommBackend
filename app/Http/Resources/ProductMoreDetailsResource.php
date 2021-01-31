@@ -2,8 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\ProductIndexResource;
+use App\Http\Resources\ProductVariationResource;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductMoreDetailsResource extends ProductIndexResource
 {
@@ -16,7 +17,7 @@ class ProductMoreDetailsResource extends ProductIndexResource
     public function toArray($request)
     {
         return array_merge(parent::toArray($request),[
-            'variations'=>[]
+            'variations'=>ProductVariationResource::collection($this->variations)
         ]);
     }
 }
